@@ -141,14 +141,12 @@ export default {
 
 <style lang="scss">
 @import '../assets/scss/index.scss';
+@import '../assets/css/iconfont.css';
 .content {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   padding-top: .2rem;
-}
-.humiture {
-  // margin-left: .5rem;
 }
 .pigAmount {
   margin-left: .4rem;
