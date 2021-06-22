@@ -37,6 +37,18 @@ axios.defaults.baseURL = 'http://47.100.98.99:9988'; // 配置axios请求的地�
 axios.defaults.timeout = 1000;
 axios.defaults.headers.post['Content-Type'] = 'application/json; charset=utf-8';
 
+// 添加请求拦截器
+axios.interceptors.request.use(function (config) {
+  // 在发送请求之前做些什么
+  if (localStorage.getItem("TOKEN")){
+    config.headers.Authorizaion = localStorage.getItem("TOKEN");
+  }
+  return config;
+}, function (error) {
+  // 对请求错误做些什么
+  return Promise.reject(error);
+});
+
 new Vue({
   router,
   store,

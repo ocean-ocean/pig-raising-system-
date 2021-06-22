@@ -36,6 +36,7 @@
         <div class="date">
           {{this.date}}
         </div>
+       <input class="btn" type="button" name="退出" value="退出" @click="quit"/>
         <!-- 内容end -->
       </div>
     </dv-full-screen-container>
@@ -114,7 +115,7 @@ export default {
           this.equipment.cooling = response.data[0].fan;
       })
     },
-      getAmount() {
+    getAmount() {
       this.axios({
           method: 'get',
           url: '/pig-info/getsex',
@@ -124,6 +125,10 @@ export default {
           this.pigAmount.boar = response.data.femalePigAmount;
           this.pigAmount.sow = response.data.malePigAmount;
       })
+    },
+    quit() {
+      localStorage.removeItem("TOKEN");
+      this.$router.push("/login");
     },
     change() {
       this.humiture.temperature += 10;
@@ -139,7 +144,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import '../assets/scss/index.scss';
 @import '../assets/css/iconfont.css';
 .content {
@@ -164,5 +169,13 @@ export default {
   left: .5rem;
   font-size: .3rem;
   color: #006ced;
+}
+.btn {
+  position: absolute;
+  top: .3rem !important;
+  right: .1rem !important;
+  width: .8rem !important;
+  height: .5rem !important;
+  background-color: rgba($color: #000000, $alpha: 0) !important;
 }
 </style>
