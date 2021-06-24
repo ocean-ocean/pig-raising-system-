@@ -44,13 +44,17 @@ export default {
                 }
             }).then((response)=> {
                 console.log(response);
-                localStorage.setItem("TOKEN", response.data.obj);
-
-                if (localStorage.getItem("TOKEN")){
-                    this.$router.push("/index");
+                // 是否成功
+                if (response.data.code == 200){
+                    localStorage.setItem("TOKEN", response.data.obj);
+                    // 是否有token
+                    if (localStorage.getItem("TOKEN")){
+                        this.$router.push("/");
+                    }
                 }
+            }).catch((err)=> {
+                console.log(err);
             })
-            console.log(this.username);
         }
     }
 }

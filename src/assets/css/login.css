@@ -42,7 +42,7 @@ html {
 .btn{
     position: absolute;
     /* top: 18.5rem; */
-    top: 3rem;
+    top: 3.5rem;
     right: 1rem;
     border: none;
     color: #fff;
@@ -72,7 +72,7 @@ html {
 	width: 960px;
 	height: 35px;
 	color: #fff;
-    font-size: 12.38px;
+    font-size: 20px;
     position: absolute;
     /* top: -4rem; */
     top: -1rem;

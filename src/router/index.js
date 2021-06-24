@@ -6,8 +6,14 @@ import Login from '../components/login.vue'
 
 Vue.use(VueRouter)
 
-const routes = [{
+const routes = [
+{
   path: '/index',
+  name: 'index',
+  component: Index
+},
+{
+  path: '/',
   name: 'index',
   component: Index
 },
@@ -35,10 +41,13 @@ router.beforeEach((to, from, next) => {
     next();
   }
   // 如果有token不改变否则到
-  if (!isToken && to.path !== '/login') {
+  else if (!isToken && to.path !== '/login' || to.path == '/index') {
     next("/login");
   }
-  next();
+  else{
+    next();
+  }
+  
 })
 
 export default router

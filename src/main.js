@@ -38,13 +38,14 @@ axios.defaults.timeout = 1000;
 axios.defaults.headers.post['Content-Type'] = 'application/json; charset=utf-8';
 
 // 添加请求拦截器
-axios.interceptors.request.use(function (config) {
+axios.interceptors.request.use((config) => {
   // 在发送请求之前做些什么
   if (localStorage.getItem("TOKEN")){
+    // 将token添加到请求头
     config.headers.Authorizaion = localStorage.getItem("TOKEN");
   }
   return config;
-}, function (error) {
+},  (error) => {
   // 对请求错误做些什么
   return Promise.reject(error);
 });
